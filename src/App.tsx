@@ -4,6 +4,7 @@ import GamePage from './pages/GamePage'
 import KatalogPage from './pages/KatalogPage'
 import Navbar from './layouts/Navbar'
 import Footer from './layouts/Footer'
+import Sangkuriang from './layouts/Sangkuriang'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="/game" element={<GamePage />} />
         <Route path="/katalog" element={<KatalogPage />} />
       </Routes>
-
+      <Sangkuriang />
       <Footer />
     </div>
   )
