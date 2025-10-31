@@ -1,0 +1,37 @@
+{
+  "articles": [
+    {
+      "id": "sangkuriang",
+      "title": "Legenda Sangkuriang & Asal Mula Tangkuban Perahu",
+      "summary": "Kisah tragis seorang anak yang tanpa sadar mencintai ibunya sendiri, Dayang Sumbi...",
+      "product_id": "P002"
+    },
+    {
+      "id": "tenun-sunda",
+      "title": "Filosofi Tenun Dayang Sumbi",
+      "summary": "Dayang Sumbi adalah seorang penenun ulung. Kain yang ia buat bukan sekadar pakaian...",
+      "product_id": "P001"
+    }
+  ],
+  "products": [
+    {
+      "id": "P001",
+      "name": "Tenun Asli Khas Jawa Barat (Motif Parahyangan)",
+      "artist": "Pengrajin Lokal (Tasikmalaya)",
+      "price": "Rp 450.000",
+      "image_url": "https://i.ibb.co/example/tenun-jabar.jpg"
+    },
+    {
+      "id": "P002",
+      "name": "Replika Ukiran Perahu Sangkuriang",
+      "artist": "Studio Ukir (Cirebon)",
+      "price": "Rp 720.000",
+      "image_url": "https://i.ibb.co/example/ukiran-perahu.jpg"
+    }
+  ],
+  "leaderboard": [
+    { "rank": 1, "name": "SundaPride", "score": 12000, "trophy": "nft_pelindung.png" },
+    { "rank": 2, "name": "DayangSumbiSimp", "score": 9500, "trophy": null },
+    { "rank": 3, "name": "PerahuCepat", "score": 8100, "trophy": "nft_pelindung.png" }
+  ]
+}
