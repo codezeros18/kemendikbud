@@ -46,7 +46,7 @@ const Hero = () => {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="flex flex-col justify-center space-y-6"
         >
-          <h1 className="text-6xl font-bold leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
             <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-300 via-red-400 to-purple-400">
               Jejak Sangkuriang
             </span>
