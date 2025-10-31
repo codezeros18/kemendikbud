@@ -1,6 +1,7 @@
 // src/components/Showcase.tsx
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import img from "../assets/valorant.webp";
 
 export default function Showcase() {
   return (
@@ -43,7 +44,7 @@ export default function Showcase() {
         >
           {/* Ganti gambar/video di bawah ini sesuai kebutuhan */}
           <img
-            src="/images/sangkuriang-preview.png"
+            src= {img}
             alt="Game Preview"
             className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
           />
