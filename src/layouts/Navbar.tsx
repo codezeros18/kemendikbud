@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Wallet } from "lucide-react"; // 🪙 Icon wallet modern
 
 type NavItem = {
   label: string;
@@ -62,8 +63,18 @@ const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {/* === Auth + Animated Hamburger === */}
-        <div className="flex items-center space-x-4">
+        {/* === Right Section (Wallet + Auth + Hamburger) === */}
+        <div className="flex items-center space-x-5">
+          {/* 🪙 Wallet Section */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="hidden md:flex items-center space-x-2 text-sm text-[#ffb84c]"
+          >
+            <Wallet size={18} className="text-[#ffb84c]" />
+            <span className="font-medium">Rp 20.000</span>
+          </motion.div>
+
+          {/* === Auth Buttons === */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             className="hidden md:block text-zinc-300 hover:text-white text-sm"
@@ -84,19 +95,16 @@ const Navbar: React.FC = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center space-y-1 focus:outline-none"
           >
-            {/* Top bar */}
             <motion.span
               animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3 }}
               className="block w-6 h-0.5 bg-white"
             />
-            {/* Middle bar */}
             <motion.span
               animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
               transition={{ duration: 0.2 }}
               className="block w-6 h-0.5 bg-white"
             />
-            {/* Bottom bar */}
             <motion.span
               animate={isOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3 }}
@@ -106,61 +114,67 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* === Mobile Menu (below navbar) === */}
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          key="mobileMenu"
-          initial={{ x: "100%", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: "100%", opacity: 0 }}
-          transition={{ duration: 0.45, ease: "easeInOut" }}
-          className="fixed top-[68px] right-0 w-full h-[calc(100vh-68px)] 
-                    bg-linear-to-b from-[#1b1324]/95 via-[#24182f]/95 to-[#0f0a14]/95 
-                    backdrop-blur-2xl border-l border-[#3a2750]/50 
-                    z-40 p-8 flex flex-col justify-between"
-        >
-          {/* Menu Items */}
-          <div className="space-y-5 pt-2">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={index}
-                href={item.href}
-                className="block text-lg font-semibold bg-clip-text text-transparent 
-                          bg-linear-to-r from-[#ffb84c] via-[#ff6ec7] to-[#ffb84c] 
-                          hover:opacity-90 transition-all"
-                whileHover={{ x: 8 }}
-                onClick={() => setIsOpen(false)}
+      {/* === Mobile Menu (slide in from right) === */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            key="mobileMenu"
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+            className="fixed top-[68px] right-0 w-full h-[calc(100vh-68px)] 
+                      bg-linear-to-b from-[#1b1324]/95 via-[#24182f]/95 to-[#0f0a14]/95 
+                      backdrop-blur-2xl border-l border-[#3a2750]/50 
+                      z-40 p-8 flex flex-col justify-between"
+          >
+            {/* Menu Items */}
+            <div className="space-y-5 pt-2">
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={index}
+                  href={item.href}
+                  className="block text-lg font-semibold bg-clip-text text-transparent 
+                            bg-linear-to-r from-[#ffb84c] via-[#ff6ec7] to-[#ffb84c] 
+                            hover:opacity-90 transition-all"
+                  whileHover={{ x: 8 }}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Wallet + Auth Buttons (Mobile) */}
+            <div className="space-y-3 pb-4">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center justify-center space-x-2 text-[#ffb84c] font-medium"
               >
-                {item.label}
-              </motion.a>
-            ))}
-          </div>
+                <Wallet size={18} className="text-[#ffb84c]" />
+                <span>Rp 20.000</span>
+              </motion.div>
 
-          {/* Auth Buttons */}
-          <div className="space-y-3 pb-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="w-full text-[#ffb84c] border border-[#ffb84c]/60 rounded-lg py-2 
-                        hover:bg-[#ffb84c]/10 transition-all duration-200"
-            >
-              Log in
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="w-full bg-linear-to-r from-[#ffb84c] to-[#ff6ec7] 
-                        text-white font-medium rounded-lg py-2 shadow-lg shadow-[#ff6ec7]/30 
-                        hover:shadow-[#ffb84c]/40 transition-all duration-300"
-            >
-              Sign up
-            </motion.button>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-
-
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="w-full text-[#ffb84c] border border-[#ffb84c]/60 rounded-lg py-2 
+                          hover:bg-[#ffb84c]/10 transition-all duration-200"
+              >
+                Log in
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="w-full bg-linear-to-r from-[#ffb84c] to-[#ff6ec7] 
+                          text-white font-medium rounded-lg py-2 shadow-lg shadow-[#ff6ec7]/30 
+                          hover:shadow-[#ffb84c]/40 transition-all duration-300"
+              >
+                Sign up
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
