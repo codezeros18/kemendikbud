@@ -38,7 +38,7 @@ const Hero = () => {
       </div>
 
       {/* === CONTENT === */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-16">
+      <div className="relative z-10 max-w-5xl mx-auto px-1 sm:px-2 md:px-4 grid md:grid-cols-2 gap-0 md:gap-16">
         {/* Left Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -46,7 +46,7 @@ const Hero = () => {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="flex flex-col justify-center space-y-6"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
             <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-300 via-red-400 to-purple-400">
               Jejak Sangkuriang
             </span>
@@ -59,7 +59,7 @@ const Hero = () => {
             experiences.
           </p>
 
-          <div className="flex space-x-4 pt-4">
+          <div className="flex space-x-2 md:space-x-4 pt-4">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
